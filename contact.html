@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — YAYA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/contact.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="/Images/YAYA-LOGO.jpg" height="45" alt="YAYA Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+      aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="Products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item position-relative">
+          <a class="nav-link" href="cart.html">🛒
+            <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <main class="container page-contact">
+    <section class="contact-grid">
+
+      <aside class="contact-card">
+        <div class="logo-wrap">
+          <img src="/Images/YAYA-LOGO.jpg" alt="YAYA" />
+        </div>
+        <h2>Get in touch</h2>
+        <p class="lead">Have a question or an order? Send a message — I’ll reply fast 💖</p>
+
+        <div class="quick-contact">
+          <a class="contact-line" href="mailto:esraak22@icloud.com" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <small>Email</small>
+              <strong>esraak22@icloud.com</strong>
+            </div>
+            <button class="copy-btn" data-copy="esraak22@icloud.com" title="Copy email">Copy</button>
+          </a>
+          <div class="socials">
+            <a href="https://www.instagram.com/yaya_store_m?igsh=b2drNzY4dHEzMnQ1&utm_source=qr" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1A6kfSge3a/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@esraa.khaled212" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://chat.whatsapp.com/EQowS6YwUr1E8NVwU9u0Mp" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+      </aside>
+
+      <section class="contact-form-wrap">
+        <div class="form-card">
+          <h3>Send a message</h3>
+          <form id="contact-form" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="c-name">Full name</label>
+                <input id="c-name" name="name" class="form-control" required placeholder="Your name">
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" class="form-control" required placeholder="you@mail.com">
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="c-phone">Phone (optional)</label>
+              <input id="c-phone" name="phone" class="form-control" placeholder="+20 10 ...">
+            </div>
+
+            <div class="mb-3">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" name="message" rows="6" class="form-control" required placeholder="Tell me about your order or question..."></textarea>
+              <div class="invalid-feedback">Please enter a message.</div>
+            </div>
+
+            <div class="form-actions d-flex gap-2 align-items-center">
+              <button id="send-btn" type="submit" class="btn btn-primary">Send Message</button>
+              <div id="sending" class="muted"> <i class="fa fa-spinner fa-spin"></i> Sending...</div>
+            </div>
+
+            <small class="muted mt-3 d-block">We respect your privacy — your data is only used to reply to this message.</small>
+          </form>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+<footer >
+  <p class="mb-0">© 2025 YAYA | Handmade with Love 💕.</p>
+</footer>
+
+  <div id="toast" class="toast-notice"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/Js/contact.js"></script>
+</body>
+</html>

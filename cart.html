@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="shortcut icon" href="/Images/YAYA-LOGO.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="stylesheet" href="/css/cart.css">
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="/Images/YAYA-LOGO.jpg" height="45" alt="YAYA Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+      aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="Products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item position-relative">
+          <a class="nav-link" href="cart.html">🛒
+            <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <section class="cart-container">
+    <h2>Your Shopping Cart</h2> 
+    <div id="cart-items"></div>
+
+    <div id="empty-cart" class="empty-cart">
+      <p>Your cart is empty 💕</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+
+    <div class="order-summary" id="order-summary">
+      <h3>Order Summary</h3>
+      <p><strong>Subtotal:</strong> <span id="subtotal">0</span> EGP</p>
+
+      <form id="order-form">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+
+        <select id="governorate" required>
+          <option value="">Select Governorate</option>
+          <option value="Cairo" data-fee="50">Cairo (50 EGP)</option>
+          <option value="Giza" data-fee="60">Giza (60 EGP)</option>
+          <option value="Alexandria" data-fee="70">Alexandria (70 EGP)</option>
+          <option value="Other" data-fee="80">Other (80 EGP)</option>
+        </select>
+
+        <input type="text" id="city" placeholder="City" required>
+        <input type="text" id="street" placeholder="Street Address" required>
+
+        <select id="payment-method" required>
+          <option value="">Select Payment Method</option>
+          <option value="cash">Cash on Delivery</option>
+          <option value="visa">Visa / Credit Card</option>
+        </select>
+
+        <div id="visa-details" class="visa-details">
+          <input type="text" placeholder="Card Number">
+          <input type="text" placeholder="Expiry MM/YY">
+          <input type="text" placeholder="CVV">
+        </div>
+      </form>
+
+      <p><strong>Delivery:</strong> <span id="delivery-fee">0</span> EGP</p>
+      <p class="total"><strong>Total:</strong> <span id="total">0</span> EGP</p>
+
+      <button id="confirm-order" class="btn">Confirm Order</button>
+      <button id="download-invoice" class="btn" style="display: none;">Download Invoice</button>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 YAYA | Handmade with Love 💕</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+      emailjs.init("oC4uck4mYQLYIWS8R"); 
+  })();
+</script>
+<script src="/Js/cart.js"></script>
+</body>
+</html>

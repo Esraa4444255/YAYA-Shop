@@ -1,0 +1,103 @@
+:root{
+  --pink:#ff6fa6;
+  --pink-2:#fa84bf;
+  --muted:#666;
+  --bg:#fff0f5;
+  --card:#ffffff;
+  --hover :#dc2379;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 18px;
+  color: #d7d4d4 !important;
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-brand img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; 
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+  color: #0a0a0a !important;
+  font-weight: 700;
+  position: relative;
+  padding: 10px 15px;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #828181 !important;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -9px;
+  right: -18px;
+  background: #575757;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#about {
+  background: var(--card);
+  padding: 80px 0;
+}
+
+#about h2 {
+  font-size: 2.5rem;
+  color: var(--pink);
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+
+#about p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+#about .about-img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+#about .about-img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #ffffffa1;
+  color: #000000;
+  margin-top: 40px;
+}
