@@ -98,6 +98,7 @@ body {
 .quantity-box button:hover {
   background: var(--pink);
   border-color: var(--pink);
+  color: #fff;
 }
 
 .strap-options {
