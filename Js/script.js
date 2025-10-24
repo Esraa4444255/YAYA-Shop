@@ -18,6 +18,12 @@ function addToCart(name, price, img) {
   showToast(`"${name}" added to cart 👜`);
 }
 
+function viewDetails(name, price, desc, img) {
+  const product = { name, price, desc, img };
+  localStorage.setItem('selectedProduct', JSON.stringify(product));
+  window.location.href = 'details.html';
+}
+
 function updateCartCount() {
   const cartBadge = document.getElementById("cart-count");
   if (cartBadge) {

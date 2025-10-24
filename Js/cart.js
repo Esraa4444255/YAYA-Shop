@@ -17,8 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const paymentSelect = document.getElementById("payment-method");
   const visaDetails = document.getElementById("visa-details");
 
-
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "toast-message";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add("show"), 100);
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }, 2500);
+  }
 
   function renderCart() {
     cartItemsContainer.innerHTML = "";
@@ -42,12 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <h4>${item.name}</h4>
           <p>${item.price} EGP</p>
           <div class="quantity">
-            <button class="decrease" data-index="${index}">-</button>
-            <span>${item.quantity}</span>
-            <button class="increase" data-index="${index}">+</button>
             <button class="remove btn btn-sm ms-2" data-index="${index}">Remove</button>
           </div>
-        </div>
       `;
       cartItemsContainer.appendChild(div);
     });
@@ -89,18 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   confirmOrderBtn.addEventListener("click", () => {
-    if (cart.length === 0) return alert("Your cart is empty!");
+    if (cart.length === 0) {
+      showToast("Your cart is empty!");
+      return;
+    }
 
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const city = document.getElementById("city").value.trim();
     const street = document.getElementById("street").value.trim();
+    const governorate = governorateSelect.value;
 
-    if (!name || !phone || !city || !street) {
-      alert("Please fill all required fields.");
-      return;
-    }
-
+    if (!name || !phone || !city || !street || !governorate || !paymentSelect.value) {
+  showToast("Please complete all required fields.");
+  return;
+}
 
     emailjs.send("service_odcd4v7", "template_hpn22nq", {
       name,
@@ -112,61 +121,53 @@ document.addEventListener("DOMContentLoaded", () => {
       message: cart.map(i => `${i.name} (x${i.quantity})`).join(", "),
       total: totalEl.textContent
     }).then(() => {
-      if (cart.length === 0) return alert("Your cart is empty!");
-
-
-const orderData = {
-  name: document.getElementById("name").value,
-  phone: document.getElementById("phone").value,
-  city: document.getElementById("city").value,
-  street: document.getElementById("street").value,
-  governorate: document.getElementById("governorate").value,
-  payment: document.getElementById("payment-method").value,
-  total: totalEl.textContent,
-  items: cart
-};
-
-
-
-cart = [];
-localStorage.setItem("cart", JSON.stringify(cart));
-
-const orderId = "YAYA" + Math.floor(Math.random() * 1000000);
-
-document.querySelector(".cart-container").innerHTML = `
-  <div class="invoice">
-    <h2>🎀 Order Confirmed!</h2>
-    <p>Thank you <strong>${orderData.name}</strong> for shopping with <strong>YAYA</strong> 💕</p>
-    <p><strong>Order ID:</strong> ${orderId}</p>
-    <div class="invoice-details">
-      <h4>Shipping Info</h4>
-      <p>${orderData.street}, ${orderData.city}, ${orderData.governorate}</p>
-      <p><strong>Phone:</strong> ${orderData.phone}</p>
-      <p><strong>Payment:</strong> ${orderData.payment}</p>
-    </div>
-    <div class="invoice-items">
-      <h4>Order Items</h4>
-      ${orderData.items.map(item => `
-        <p>${item.name} × ${item.quantity} — ${item.price * item.quantity} EGP</p>
-      `).join("")}
-    </div>
-    <hr>
-    <h3>Total: ${orderData.total} EGP</h3>
-    <button class="btn" id="back-home">Return to Home</button>
-  </div>
-`;
-
-document.getElementById("back-home").addEventListener("click", () => {
-  window.location.href = "index.html";
-});
+      const orderData = {
+        name,
+        phone,
+        city,
+        street,
+        governorate: governorateSelect.value,
+        payment: paymentSelect.value,
+        total: totalEl.textContent,
+        items: cart
+      };
 
       cart = [];
       localStorage.setItem("cart", JSON.stringify(cart));
+
+      const orderId = "YAYA" + Math.floor(Math.random() * 1000000);
+
+      document.querySelector(".cart-container").innerHTML = `
+        <div class="invoice">
+          <h2>🎀 Order Confirmed!</h2>
+          <p>Thank you <strong>${orderData.name}</strong> for shopping with <strong>YAYA</strong> 💕</p>
+          <p><strong>Order ID:</strong> ${orderId}</p>
+          <div class="invoice-details">
+            <h4>Shipping Info</h4>
+            <p>${orderData.street}, ${orderData.city}, ${orderData.governorate}</p>
+            <p><strong>Phone:</strong> ${orderData.phone}</p>
+            <p><strong>Payment:</strong> ${orderData.payment}</p>
+          </div>
+          <div class="invoice-items">
+            <h4>Order Items</h4>
+            ${orderData.items.map(item => `
+              <p>${item.name} × ${item.quantity} — ${item.price * item.quantity} EGP</p>
+            `).join("")}
+          </div>
+          <hr>
+          <h3>Total: ${orderData.total} EGP</h3>
+          <button class="btn" id="back-home">Return to Home</button>
+        </div>
+      `;
+
+      document.getElementById("back-home").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
       renderCart();
     })
     .catch(err => {
       console.error(err);
-      alert("❌ Failed to send order. Try again later.");
+      showToast("❌ Failed to send order. Try again later.");
     });
   });
 

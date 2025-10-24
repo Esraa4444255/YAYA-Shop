@@ -41,7 +41,7 @@
   <div class="container">
     <h1 class="fw-bold animate__animated animate__fadeInDown">Luxury Beaded Bags</h1>
     <p class="lead animate__animated animate__fadeInUp">Designed with love by YAYA</p>
-    <a href="products.html" class="btn btn-pink btn-lg mt-3 animate__animated animate__fadeInUp">
+    <a href="products.html" class="btn2 btn-pink btn-lg mt-3 animate__animated animate__fadeInUp">
       Explore Collection
     </a>
   </div>
@@ -51,32 +51,36 @@
     <h2 class="special-heading">Featured Products</h2>
     <div class="pro-content">
         <div class="card">
-          <img src="Images/5816415536433711485.jpg"  alt="Perla">
-          <div class="info">
-            <h5 class="card-text">Perla</h5>
-            <p class="card-title"> Mini Crystal bag — Chic handmade handbag </p>
-            <p class="price">250 EGP</p>
-            <button class="btn btn-outline-dark" onclick="addToCart('Perla', 250, 'Images/5816415536433711485.jpg')">Add To Cart</button>
-          </div>
-        </div>
-      <div class="card" >
-          <img src="Images/5816415536433711490.jpg"  alt="Eleganta">
-          <div class="info">
-            <h5 class="card-title">Eleganta</h5>
-            <p class="card-title"> Mini plastic bag — chic, and handmade with care </p>
-            <p class="price">200 EGP</p>
-            <button class="btn btn-outline-dark" onclick="addToCart('Eleganta', 200, 'Images/5816415536433711490.jpg')">Add To Cart</button>
-          </div>
+      <img src="Images/5816415536433711485.jpg" alt=""
+        onclick="viewDetails('Perla', 250, 'Mini Crystal bag — Chic handmade handbag', 'Images/5816415536433711485.jpg')"
+        style="cursor:pointer;">
+      <div class="info">
+        <h5>Perla</h5>
+        <p>Mini Crystal bag — Chic handmade handbag</p>
+        <p class="price">250 EGP</p>
+        <button class="btn" onclick="addToCart('Perla', 250, 'Images/5816415536433711485.jpg')">Add To Cart</button>
       </div>
+    </div>
       <div class="card">
-          <img src="Images/5816415536433711553.jpg"  alt="Rola">
-          <div class="info">
-            <h5 class="card-title">Rola</h5>
-            <p class="card-title"> Larg Crystal bag — shining, stylish, and crafted with care </p>
-            <p class="price">550 EGP</p>
-            <button class="btn btn-outline-dark" onclick="addToCart('Rola', 550, 'Images/5816415536433711553.jpg')">Add To Cart</button>
-          </div>
-        </div>
+      <img src="Images/5816415536433711490.jpg" alt=""
+        onclick="viewDetails('Eleganta', 200, 'Mini plastic bag — Chic handmade with care', 'Images/5816415536433711490.jpg')"
+        style="cursor:pointer;">
+      <div class="info">
+        <h5>Eleganta</h5>
+        <p>Mini plastic bag — Chic handmade with care</p>
+        <p class="price">200 EGP</p>
+        <button class="btn" onclick="addToCart('Eleganta', 200, 'Images/5816415536433711490.jpg')">Add To Cart</button>
+      </div>
+    </div>
+      <div class="card">
+      <img src="Images/5816415536433711553.jpg" alt=""
+        onclick="viewDetails('Royal', 500, 'Chic handmade handbag with crystals', 'Images/5816415536433711553.jpg')"
+        style="cursor:pointer;">
+      <div class="info">
+        <h5>Royal</h5>
+        <p>Chic handmade handbag with crystals</p>
+        <p class="price">500 EGP</p>
+        <button class="btn" onclick="addToCart('Royal', 500, 'Images/5816415536433711553.jpg')">Add To Cart</button>
       </div>
     </div>
 </section>

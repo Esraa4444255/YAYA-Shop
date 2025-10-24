@@ -98,25 +98,6 @@ h2 {
   gap: 5px;
 }
 
-.cart-item button.increase,
-.cart-item button.decrease {
-  background-color: var(--pink);  
-  border: none;
-  color: white;
-  font-size: 18px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.cart-item button.increase:hover,
-.cart-item button.decrease:hover {
-  background-color: var(--hover);
-}
-
-
 .cart-item .quantity {
   font-size: 16px;
   margin: 0 10px;
@@ -136,22 +117,26 @@ h2 {
 }
 
 .cart-item button.remove:hover {
-  background-color:  var(--hover);
+  background-color:var(--hover);
 }
+
 .btn {
-  display: inline-block;
-  background: var(--pink);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 10px;
-  text-decoration: none;
-  border: none;
-  transition: 0.3s;
-  cursor: pointer;
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 22px;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .btn:hover {
   background: var(--hover);
+  border-color: var(--hover);
+  color: #fff;
 }
 
 .empty-cart {
@@ -159,6 +144,7 @@ h2 {
   margin-top: 40px;
   display: none;
 }
+
 
 .order-summary {
   background: #fff0f5;
@@ -229,6 +215,27 @@ h2 {
   to {opacity: 1; transform: translateY(0);}
 }
 
+.toast-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--pink-2);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 footer {
   text-align: center;
   padding: 15px;
@@ -236,4 +243,5 @@ footer {
   color: #000000;
   margin-top: 40px;
 }
+
 
